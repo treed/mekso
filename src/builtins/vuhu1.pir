@@ -12,7 +12,7 @@ vuhu1.pir -- implementation of the VUhU1 selma'o
     .param num a            
     .param num b
     $N0 = a + b
-    print "$N0\n"
+    say $N0
     .return ($N0)
 .end
 
