@@ -1,0 +1,8 @@
+Makefile
+mekso
+mekso.c
+mekso.o
+mekso.pbc
+src/gen_actions.pir
+src/gen_builtins.pir
+src/gen_grammar.pir
