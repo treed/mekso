@@ -31,7 +31,9 @@ rule value {
     | <quote> {*}                                #= quote
 }
 
-token integer { \d+ {*} }
+token integer { (<PA> ** [\s*]) {*} }
+
+token PA { no | pa | re | ci | vo | mu | xa | ze | bi | so }
 
 token quote {
     [ \' <string_literal: '\'' > \' | \" <string_literal: '"' > \" ]
