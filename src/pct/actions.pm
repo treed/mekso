@@ -76,7 +76,23 @@ method value($/, $key) {
 
 
 method integer($/) {
-    make PAST::Val.new( :value( ~$/ ), :returns('Integer'), :node($/) );
+    my %PA;
+    %PA<no> := 0;
+    %PA<pa> := 1;
+    %PA<re> := 2;
+    %PA<ci> := 3;
+    %PA<vo> := 4;
+    %PA<mu> := 5;
+    %PA<xa> := 6;
+    %PA<ze> := 7;
+    %PA<bi> := 8;
+    %PA<so> := 9;
+    my $num := 0;
+    for $<PA> {
+        $num := $num * 10;
+        $num := $num + %PA{~$_};
+    }
+    make PAST::Val.new( :value( $num ), :returns('Integer'), :node($/) );
 }
 
 
