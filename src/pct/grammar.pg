@@ -26,6 +26,10 @@ rule statement {
     | <term> 'vu\'u' <term> {*} #= vuhu
     | <term> 'fe\'i' <term> {*} #= fehi
     | <term> 'pi\'i' <term> {*} #= pihi
+    | 'su\'i' <term> <term>+ {*} #= suhi
+    | 'vu\'u' <term> <term>+ {*} #= vuhu
+    | 'fe\'i' <term> <term>+ {*} #= fehi
+    | 'pi\'i' <term> <term>+ {*} #= pihi
 }
 
 rule value {
