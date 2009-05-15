@@ -37,6 +37,7 @@ SOURCES = mekso.pir \
   $(MEKSO_GROUP)
 
 BUILTINS_PIR = \
+  src/builtins/say.pir \
   src/builtins/vuhu1.pir \
 
 # PMCS        = mekso

@@ -22,8 +22,10 @@ token ws {
 }
 
 rule statement {
-    <term> 'su\'i' <term>
-    {*}
+    | <term> 'su\'i' <term> {*} #= suhi
+    | <term> 'vu\'u' <term> {*} #= vuhu
+    | <term> 'fe\'i' <term> {*} #= fehi
+    | <term> 'pi\'i' <term> {*} #= pihi
 }
 
 rule value {
