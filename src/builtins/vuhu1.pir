@@ -9,33 +9,60 @@ vuhu1.pir -- implementation of the VUhU1 selma'o
 .namespace []
 
 .sub 'suhi'
-    .param num a            
-    .param num b
-    $N0 = a + b
+    .param pmc args            :slurpy
+    .local pmc iter
+    iter = new 'Iterator', args
+  iter_loop:
+    unless iter goto iter_end
+    $N1 = shift iter
+    $N0 = $N0 + $N1
+    goto iter_loop
+  iter_end:
     say $N0
     .return ($N0)
 .end
 
 .sub 'vuhu'
-    .param num a
-    .param num b
-    $N0 = a - b
+    .param pmc args            :slurpy
+    .local pmc iter
+    iter = new 'Iterator', args
+    $N0 = shift iter
+  iter_loop:
+    unless iter goto iter_end
+    $N1 = shift iter
+    $N0 = $N0 - $N1
+    goto iter_loop
+  iter_end:
     say $N0
     .return ($N0)
 .end
 
 .sub 'pihi'
-    .param num a
-    .param num b
-    $N0 = a * b
+    .param pmc args            :slurpy
+    .local pmc iter
+    iter = new 'Iterator', args
+    $N0 = shift iter
+  iter_loop:
+    unless iter goto iter_end
+    $N1 = shift iter
+    $N0 = $N0 * $N1
+    goto iter_loop
+  iter_end:
     say $N0
     .return ($N0)
 .end
 
 .sub 'fehi'
-    .param num a
-    .param num b
-    $N0 = a / b
+    .param pmc args            :slurpy
+    .local pmc iter
+    iter = new 'Iterator', args
+    $N0 = shift iter
+  iter_loop:
+    unless iter goto iter_end
+    $N1 = shift iter
+    $N0 = $N0 / $N1
+    goto iter_loop
+  iter_end:
     say $N0
     .return ($N0)
 .end
@@ -45,4 +72,3 @@ vuhu1.pir -- implementation of the VUhU1 selma'o
 #   fill-column: 100
 # End:
 # vim: expandtab shiftwidth=4 ft=pir:
-
