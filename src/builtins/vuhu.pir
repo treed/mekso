@@ -2,7 +2,7 @@
 
 =head1
 
-vuhu1.pir -- implementation of the VUhU1 selma'o
+vuhu.pir -- implementation of the VUhU selma'o
 
 =cut
 
@@ -63,6 +63,14 @@ vuhu1.pir -- implementation of the VUhU1 selma'o
     $N0 = $N0 / $N1
     goto iter_loop
   iter_end:
+    say $N0
+    .return ($N0)
+.end
+
+.sub 'teha'
+    .param num a
+    .param num b
+    $N0 = a ** b
     say $N0
     .return ($N0)
 .end

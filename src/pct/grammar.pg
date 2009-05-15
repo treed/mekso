@@ -28,6 +28,7 @@ rule statement {
     | 'vu\'u' <term> <term>+ {*} #= vuhu
     | 'fe\'i' <term> <term>+ {*} #= fehi
     | 'pi\'i' <term> <term>+ {*} #= pihi
+    | <term> 'te\'a' <term> {*} #= teha
 }
 
 rule value {
