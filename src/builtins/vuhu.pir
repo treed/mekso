@@ -75,6 +75,16 @@ vuhu.pir -- implementation of the VUhU selma'o
     .return ($N0)
 .end
 
+.sub 'gei'
+    .param num a
+    .param num b
+    .param num c
+    $N0 = c ** a
+    $N0 *= b
+    say $N0
+    .return ($N0)
+.end
+
 # Local Variables:
 #   mode: pir
 #   fill-column: 100
