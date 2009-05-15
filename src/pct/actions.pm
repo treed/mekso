@@ -26,7 +26,7 @@ method TOP($/) {
 
 
 method statement($/) {
-    my $past := PAST::Op.new( :name('say'), :pasttype('call'), :node( $/ ) );
+    my $past := PAST::Op.new( :name('suhi'), :pasttype('call'), :node( $/ ) );
     for $<expression> {
         $past.push( $_.ast );
     }

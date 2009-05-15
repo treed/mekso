@@ -22,21 +22,15 @@ token ws {
 }
 
 rule statement {
-    'say' <expression> [ ',' <expression> ]* ';'
+    <term> 'su\'i' <term>
     {*}
 }
 
 rule value {
     | <integer> {*}                              #= integer
-    | <quote> {*}                                #= quote
 }
 
 token integer { \d+ {*} }
-
-token quote {
-    [ \' <string_literal: '\'' > \' | \" <string_literal: '"' > \" ]
-    {*}
-}
 
 ##  terms
 token term {
