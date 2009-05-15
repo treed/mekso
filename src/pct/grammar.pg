@@ -14,11 +14,8 @@ rule TOP {
     {*}
 }
 
-##  this <ws> rule treats # as "comment to eol"
-##  you may want to replace it with something appropriate
 token ws {
     <!ww>
-    [ '#' \N* \n? | \s+ ]*
 }
 
 rule statement {
