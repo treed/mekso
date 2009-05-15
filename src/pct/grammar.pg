@@ -31,7 +31,7 @@ rule value {
     | <quote> {*}                                #= quote
 }
 
-token integer { <PA> ** [\s*] {*} }
+token integer { 'li' \s* <PA> ** [\s*] {*} }
 
 token PA { no | pa | re | ci | vo | mu | xa | ze | bi | so }
 
