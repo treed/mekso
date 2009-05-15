@@ -16,6 +16,7 @@ rule TOP {
 
 token ws {
     <!ww>
+    [ \s+ ]*
 }
 
 rule statement {
