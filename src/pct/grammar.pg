@@ -32,7 +32,7 @@ rule value {
     | <integer> {*}                              #= integer
 }
 
-token integer { 'li' \s* <PA> ** [\s*] {*} }
+token integer { <PA> ** [\s*] 'boi'? {*} }
 
 token PA { no | pa | re | ci | vo | mu | xa | ze | bi | so }
 
