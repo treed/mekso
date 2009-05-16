@@ -8,7 +8,7 @@ vuhu.pir -- implementation of the VUhU selma'o
 
 .namespace []
 
-.sub 'suhi'
+.sub "su'i"
     .param pmc args            :slurpy
     .local pmc iter
     iter = new 'Iterator', args
@@ -22,7 +22,7 @@ vuhu.pir -- implementation of the VUhU selma'o
     .return ($N0)
 .end
 
-.sub 'vuhu'
+.sub "vu'u"
     .param pmc args            :slurpy
     .local pmc iter
     iter = new 'Iterator', args
@@ -37,7 +37,7 @@ vuhu.pir -- implementation of the VUhU selma'o
     .return ($N0)
 .end
 
-.sub 'pihi'
+.sub "pi'i"
     .param pmc args            :slurpy
     .local pmc iter
     iter = new 'Iterator', args
@@ -52,7 +52,7 @@ vuhu.pir -- implementation of the VUhU selma'o
     .return ($N0)
 .end
 
-.sub 'fehi'
+.sub "fe'i"
     .param pmc args            :slurpy
     .local pmc iter
     iter = new 'Iterator', args
@@ -67,7 +67,7 @@ vuhu.pir -- implementation of the VUhU selma'o
     .return ($N0)
 .end
 
-.sub 'teha'
+.sub "te'a"
     .param num a
     .param num b
     $N0 = a ** b

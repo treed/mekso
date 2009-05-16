@@ -20,17 +20,18 @@ token ws {
 }
 
 rule statement {
-    | <term> 'su\'i' <term> {*} #= suhi
-    | <term> 'vu\'u' <term> {*} #= vuhu
-    | <term> 'fe\'i' <term> {*} #= fehi
-    | <term> 'pi\'i' <term> {*} #= pihi
-    | 'su\'i' <term> <term>+ {*} #= suhi
-    | 'vu\'u' <term> <term>+ {*} #= vuhu
-    | 'fe\'i' <term> <term>+ {*} #= fehi
-    | 'pi\'i' <term> <term>+ {*} #= pihi
-    | 'gei' <term> ** 3 {*}      #= gei
-    | <term> 'te\'a' <term> {*} #= teha
+    | <term> <operator=binaryoperator> <term> {*}
+    | <term> <operator=naryoperator> <term> {*}
+    | <operator=binaryoperator> <term> <term> {*}
+    | <operator=trinaryoperator> <term> ** 3 {*}
+    | <operator=naryoperator> <term> <term>+ {*}
 }
+
+token binaryoperator { 'te\'a' }
+
+token trinaryoperator { 'gei' }
+
+token naryoperator { 'su\'i' | 'vu\'u' | 'fe\'i' | 'pi\'i' }
 
 rule value {
     | <integer> {*}                              #= integer
