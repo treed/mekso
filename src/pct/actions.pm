@@ -25,11 +25,16 @@ method TOP($/) {
 }
 
 
-method statement($/) {
+method statement($/, $key) {
     my $past := PAST::Op.new( :name(~$<operator>), :pasttype('call'), :node( $/ ) );
-    for $<term> {
-        $past.push( $_.ast );
+    if ($key eq "unary") { 
+        $past.push( $<term>.ast );
+    } else {
+        for $<term> {
+            $past.push( $_.ast );
+        }
     }
+
     make $past;
 }
 

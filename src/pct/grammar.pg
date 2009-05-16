@@ -20,12 +20,15 @@ token ws {
 }
 
 rule statement {
-    | <term> <operator=binaryoperator> <term> {*}
-    | <term> <operator=naryoperator> <term> {*}
-    | <operator=binaryoperator> <term> <term> {*}
-    | <operator=trinaryoperator> <term> ** 3 {*}
-    | <operator=naryoperator> <term> <term>+ {*}
+    | <operator=unaryoperator> <term> {*}           #= unary
+    | <term> <operator=binaryoperator> <term> {*}   #= binary
+    | <term> <operator=naryoperator> <term> {*}     #= nary
+    | <operator=binaryoperator> <term> <term> {*}   #= binary
+    | <operator=trinaryoperator> <term> ** 3 {*}    #= trinary
+    | <operator=naryoperator> <term> <term>+ {*}    #= nary
 }
+
+token unaryoperator { 'fa\'i' }
 
 token binaryoperator { 'te\'a' }
 
