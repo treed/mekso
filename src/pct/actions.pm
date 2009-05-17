@@ -97,6 +97,9 @@ method integer($/) {
         $num := $num * 10;
         $num := $num + %PA{~$_};
     }
+    if ~$<prefixsign>[0] eq "ni'u" {
+        $num := -$num;
+    }
     make PAST::Val.new( :value( $num ), :returns('Integer'), :node($/) );
 }
 

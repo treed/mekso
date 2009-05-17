@@ -40,9 +40,11 @@ rule value {
     | <integer> {*}                              #= integer
 }
 
-token integer { <PA> ** [\s*] 'boi'? {*} }
+token integer { <prefixsign>? <PA> ** [\s*] 'boi'? {*} }
 
 token PA { no | pa | re | ci | vo | mu | xa | ze | bi | so }
+
+token prefixsign { 'ma\'u' | 'ni\'u' }
 
 ##  terms
 token term {
