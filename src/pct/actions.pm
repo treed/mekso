@@ -38,6 +38,30 @@ method statement($/, $key) {
     make $past;
 }
 
+method bridi($/, $key) {
+    my $s := PAST:Stmts.new;
+
+    my $bridi_class := PAST::Var(:name(~$<selbri>), :scope('package'));
+    my $bridi := PAST::Var(:name('bridi'), :scope('package'));
+    my $new_bridi_op := PAST::Op.new(:pasttype('bind'), $bridi, PAST::Op.new(:pasttype('callmethod'), :name('new'), $bridi_class));
+    $s.push($new_bridi_op);
+
+    if ($key eq 'observative') {
+        $s.push(PAST::Op.new(:pasttype('callmethod'), :name('add_terbri'), $bridi);
+    }
+    for $<sumti> {
+        $past.add_terbri($_.ast.sumti)
+    }
+
+    $past.bridi(~$/)
+    $past.selbri(~$<selbri>)
+    
+    make $past;
+}
+
+method sumti($/, $key) {
+    my $past := PAST::
+
 ##  expression:
 ##    This is one of the more complex transformations, because
 ##    our grammar is using the operator precedence parser here.
@@ -80,7 +104,7 @@ method value($/, $key) {
 }
 
 
-method integer($/) {
+method namcu($/) {
     my %PA;
     %PA<no> := 0;
     %PA<pa> := 1;
@@ -100,7 +124,7 @@ method integer($/) {
     if ~$<prefixsign>[0] eq "ni'u" {
         $num := -$num;
     }
-    make PAST::Val.new( :value( $num ), :returns('Integer'), :node($/) );
+    make PAST::Val.new( :value( $num ), :returns('BigNum'), :node($/) );
 }
 
 
@@ -110,7 +134,7 @@ method quote($/) {
 
 
 # Local Variables:
-#   mode: cperl
+#   mode: perl6
 #   cperl-indent-level: 4
 #   fill-column: 100
 # End:

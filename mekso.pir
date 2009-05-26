@@ -29,11 +29,14 @@ object.
 
 .sub '' :anon :load :init
     load_bytecode 'PCT.pbc'
-    .local pmc parrotns, hllns, exports
+    .local pmc parrotns, hllns, exports, p6meta
     parrotns = get_root_namespace ['parrot']
     hllns = get_hll_namespace
     exports = split ' ', 'PAST PCT PGE'
     parrotns.'export_to'(hllns, exports)
+    $P0 = get_root_global ['parrot'], 'P6metaclass'
+    $P0.'new_class'('dacti')
+    p6meta = P0.'HOW'()
 .end
 
 .include 'src/gen_grammar.pir'
