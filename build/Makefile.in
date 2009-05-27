@@ -39,6 +39,10 @@ SOURCES = mekso.pir \
 BUILTINS_PIR = \
   src/builtins/say.pir \
   src/builtins/vuhu.pir \
+  src/classes/bridi.pir \
+  src/classes/cusku.pir \
+  src/classes/selcmi.pir \
+  src/classes/sumti.pir
 
 # PMCS        = mekso
 # PMC_SOURCES = $(PMC_DIR)/mekso.pmc

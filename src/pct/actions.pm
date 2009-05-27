@@ -16,6 +16,11 @@ value of the comment is passed as the second argument to the method.
 
 class mekso::Grammar::Actions;
 
+sub instantiate_class($class_name) {
+    my $class := PAST::Var.new(:name($class_name), :scope('package'));
+    return PAST::Op.new(:pasttype('callmethod'), :name('new'), $class);
+}
+
 method TOP($/) {
     my $past := PAST::Block.new( :blocktype('declaration'), :node( $/ ), :hll('mekso') );
     for $<statement> {
@@ -25,7 +30,7 @@ method TOP($/) {
 }
 
 
-method statement($/, $key) {
+method mekso($/, $key) {
     my $past := PAST::Op.new( :name(~$<operator>), :pasttype('call'), :node( $/ ) );
     if ($key eq "unary") { 
         $past.push( $<term>.ast );
@@ -39,28 +44,26 @@ method statement($/, $key) {
 }
 
 method bridi($/, $key) {
-    my $s := PAST:Stmts.new;
-
-    my $bridi_class := PAST::Var(:name(~$<selbri>), :scope('package'));
-    my $bridi := PAST::Var(:name('bridi'), :scope('package'));
-    my $new_bridi_op := PAST::Op.new(:pasttype('bind'), $bridi, PAST::Op.new(:pasttype('callmethod'), :name('new'), $bridi_class));
-    $s.push($new_bridi_op);
+    my $bridi := instantiate_class(~$<selbri>);
 
     if ($key eq 'observative') {
-        $s.push(PAST::Op.new(:pasttype('callmethod'), :name('add_terbri'), $bridi);
-    }
-    for $<sumti> {
-        $past.add_terbri($_.ast.sumti)
+        $bridi.push(PAST::Val.new( :returns('Undef') ));
     }
 
-    $past.bridi(~$/)
-    $past.selbri(~$<selbri>)
+    for $<sumti> {
+        $bridi.push($_.ast);
+    }
     
-    make $past;
+    make $bridi;
 }
 
 method sumti($/, $key) {
-    my $past := PAST::
+    my $sumti := instantiate_class('sumti');
+
+    $sumti.push($<namcu>);
+
+    make $sumti;
+}
 
 ##  expression:
 ##    This is one of the more complex transformations, because
@@ -103,8 +106,11 @@ method value($/, $key) {
     make $/{$key}.ast;
 }
 
-
 method namcu($/) {
+    make $<namcu>.ast;
+} 
+
+method nahusni($/) {
     my %PA;
     %PA<no> := 0;
     %PA<pa> := 1;
@@ -117,7 +123,7 @@ method namcu($/) {
     %PA<bi> := 8;
     %PA<so> := 9;
     my $num := 0;
-    for $<PA> {
+    for $<PA1> {
         $num := $num * 10;
         $num := $num + %PA{~$_};
     }

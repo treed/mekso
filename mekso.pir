@@ -36,7 +36,7 @@ object.
     parrotns.'export_to'(hllns, exports)
     $P0 = get_root_global ['parrot'], 'P6metaclass'
     $P0.'new_class'('dacti')
-    p6meta = P0.'HOW'()
+    p6meta = $P0.'HOW'()
 .end
 
 .include 'src/gen_grammar.pir'

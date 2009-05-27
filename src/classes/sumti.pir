@@ -9,39 +9,41 @@ src/classes/sumti.pir - sumti class
     .local pmc p6meta, sumti
     p6meta = get_hll_global ['dacti'], '$!P6META'
     sumti = p6meta.'new_class'('sumti', 'parent'=>'bridi')
-    addattribute sumti, "sumti"
-    addattribute sumti, "selsu'i"
-    addattribute sumti, "tersu'i"
 .end
 
-.sub 'sumti' :method :multi(_)
-    $P0 = getattribute self, "sumti"
+.sub 'get_sumti' :method
+    $P0 = self.'get_terbri'(0)
     .return ($P0)
 .end
 
-.sub 'sumti' :method :multi(_,_)
+.sub 'set_sumti' :method
     .param pmc arg
-    setattribute self, "sumti", arg
+    self.'set_terbri'(0,arg)
 .end
 
-.sub "selsu'i" :method :multi(_)
-    $P0 = getattribute self, "selsu'i"
+.sub "get_selsu'i" :method
+    $P0 = self.'get_terbri'(1)
     .return ($P0)
 .end
 
-.sub "selsu'i" :method :multi(_,_)
+.sub "set_selsu'i" :method
     .param pmc arg
-    setattribute self, "selsu'i", arg
+    self.'set_terbri'(1,arg)
 .end
 
-.sub "tersu'i" :method :multi(_)
-    $P0 = getattribute self, "tersu'i"
+.sub "get_tersu'i" :method
+    $P0 = self.'get_terbri'(2)
     .return ($P0)
 .end
 
-.sub "tersu'i" :method :multi(_,_)
+.sub "set_tersu'i" :method
     .param pmc arg
-    setattribute self, "tersu'i", arg
+    self.'set_terbri'(2,arg)
+.end
+
+.sub "go" :method
+    $P0 = "troci le nu pilno zo cusku tu'a lo selbri .i la'e di'u na se jalge lo plixau"
+    say $P0
 .end
 
 # Local Variables:

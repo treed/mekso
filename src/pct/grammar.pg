@@ -28,20 +28,26 @@ rule selbri {
     <brivla>
 }
 
-rule sumti {
-    'li' <mekso> {*}    #= li
-}
-
 rule brivla {
     'cusku'         #= cusku
 }
 
-rule mekso {
-    | <namcu> {*}
-    | <operation> {*}
+rule sumti {
+    'li' <namcu> {*}    #= li
 }
 
-rule operation {
+rule namcu {
+    | <nahusni>
+    | <mekso>
+}
+
+token "nahusni" { <prefixsign>? <PA1> ** [\s*] 'boi'? {*} }
+
+token PA1 { no | pa | re | ci | vo | mu | xa | ze | bi | so }
+
+token prefixsign { 'ma\'u' | 'ni\'u' }
+
+rule mekso {
     | <operator=unaryoperator> <term> {*}           #= unary
     | <term> <operator=binaryoperator> <term> {*}   #= binary
     | <term> <operator=naryoperator> <term> {*}     #= nary
@@ -59,14 +65,8 @@ token trinaryoperator { 'gei' }
 token naryoperator { 'su\'i' | 'vu\'u' | 'fe\'i' | 'pi\'i' }
 
 rule value {
-    | <namcu> {*}                              #= namcu
+    | <nahusni> {*}                              #= nahusni
 }
-
-token namcu { <prefixsign>? <PA> ** [\s*] 'boi'? {*} }
-
-token PA { no | pa | re | ci | vo | mu | xa | ze | bi | so }
-
-token prefixsign { 'ma\'u' | 'ni\'u' }
 
 ##  terms
 token term {
