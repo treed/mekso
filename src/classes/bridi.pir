@@ -8,10 +8,10 @@ src/classes/bridi.pir - bridi class
 .sub 'onload' :anon :init :load
     .local pmc p6meta, bridi
     p6meta = get_hll_global['dacti'], '$!P6META'
-    bridi = p6meta.'new_class'('bridi', 'parent'=>'dacti')
-    addattribute bridi, "bridi"
-    addattribute bridi, "selbri"
-    addattribute bridi, "terbri"
+    bridi = p6meta.'new_class'('bridi', 'parent'=>'dacti', 'attr'=>'bridi selbri terbri')
+    #addattribute bridi, "bridi"
+    #addattribute bridi, "selbri"
+    #addattribute bridi, "terbri"
 .end
 
 .sub 'new' :method
