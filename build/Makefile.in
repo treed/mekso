@@ -41,7 +41,6 @@ BUILTINS_PIR = \
   src/builtins/vuhu.pir \
   src/classes/bridi.pir \
   src/classes/cusku.pir \
-  src/classes/selcmi.pir \
   src/classes/sumti.pir
 
 # PMCS        = mekso

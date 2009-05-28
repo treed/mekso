@@ -6,7 +6,7 @@ src/classes/cusku.pir - bridi class
 .namespace ['cusku']
 
 .sub 'onload' :anon :init :load
-    .local pmc p6meta, bridi
+    .local pmc p6meta, cusku
     p6meta = get_hll_global['dacti'], '$!P6META'
     cusku = p6meta.'new_class'('cusku', 'parent'=>'bridi')
 .end

@@ -16,10 +16,10 @@ src/classes/bridi.pir - bridi class
 
 .sub 'new' :method
     .param pmc args :slurpy
-    .local pmc iter
-    .local pmc bridi
-    bridi = new self.'name' 
-    bridi.'set_selbri'(self.'name')
+    .local pmc iter, selbri, bridi
+    selbri = self.'name'()
+    bridi = new selbri
+    bridi.'set_selbri'(selbri)
     $P0 = new 'Array'
     bridi.'set_terbri'($P0)
     iter = new 'Iterator', args
@@ -64,9 +64,9 @@ src/classes/bridi.pir - bridi class
 .end
 
 .sub 'get_terbri' :method :multi(_,I)
-    .param pmc arg
+    .param int arg
     $P0 = getattribute self, 'terbri'
-    $P1 = $P0.'get_pmc_keyed_int'(arg)
+    $P1 = $P0[arg]
     .return ($P1)
 .end
 
@@ -77,16 +77,17 @@ src/classes/bridi.pir - bridi class
     $I0 = key + 1
     arg."set_tersu'i"($I0)
     $P0 = getattribute self, 'terbri'
-    $P0.'set_pmc_keyed_int'(key, arg)
+    $P0[key] = arg
 .end
 
 .sub 'add_terbri' :method
     .param pmc arg
     arg."set_selsu'i"(self)
     $P0 = getattribute self, 'terbri'
-    $I0 = $P0.'getnumber'() + 1
+    $I0 = $P0.'getnumber'()
+    $I0 = $I0 + 1
     arg."set_tersu'i"($I0)
-    $P0.'push_pmc' arg
+    push $P0, arg
 .end
 
 .sub 'go' :method
