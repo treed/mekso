@@ -37,6 +37,7 @@ object.
     $P0 = get_root_global ['parrot'], 'P6metaclass'
     $P0.'new_class'('dacti')
     p6meta = $P0.'HOW'()
+    set_hll_global ['dacti'], '$!P6META', p6meta
 .end
 
 .include 'src/gen_grammar.pir'
