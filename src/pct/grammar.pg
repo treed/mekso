@@ -24,11 +24,11 @@ rule bridi {
     | <selbri> <sumti>* {*}             #= observative
 }
 
-rule selbri {
+token selbri {
     <brivla>
 }
 
-rule brivla {
+token brivla {
     'cusku'         #= cusku
 }
 

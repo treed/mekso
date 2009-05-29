@@ -9,15 +9,13 @@ src/classes/bridi.pir - bridi class
     .local pmc p6meta, bridi
     p6meta = get_hll_global['dacti'], '$!P6META'
     bridi = p6meta.'new_class'('bridi', 'parent'=>'dacti', 'attr'=>'bridi selbri terbri')
-    #addattribute bridi, "bridi"
-    #addattribute bridi, "selbri"
-    #addattribute bridi, "terbri"
 .end
 
 .sub 'new' :method
     .param pmc args :slurpy
-    .local pmc iter, selbri, bridi
-    selbri = self.'name'()
+    .local pmc iter, bridi
+    .local string selbri
+    selbri = typeof self
     bridi = new selbri
     bridi.'set_selbri'(selbri)
     $P0 = new 'Array'
