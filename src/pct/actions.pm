@@ -60,7 +60,7 @@ method bridi($/, $key) {
 method sumti($/, $key) {
     my $sumti := instantiate_class('sumti', $/);
 
-    $sumti.push($<namcu>);
+    $sumti.push($<namcu>.ast);
 
     make $sumti;
 }
@@ -106,8 +106,8 @@ method value($/, $key) {
     make $/{$key}.ast;
 }
 
-method namcu($/) {
-    make $<namcu>.ast;
+method namcu($/,$key) {
+    make $/{$key}.ast;
 } 
 
 method nahusni($/) {

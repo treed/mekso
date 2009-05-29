@@ -37,8 +37,8 @@ rule sumti {
 }
 
 rule namcu {
-    | <mekso>
-    | <nahusni>
+    | <mekso>        {*} #= mekso
+    | <nahusni>      {*} #= nahusni
 }
 
 token "nahusni" { <prefixsign>? <PA1> ** [\s*] 'boi'? {*} }
