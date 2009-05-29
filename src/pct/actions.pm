@@ -16,14 +16,14 @@ value of the comment is passed as the second argument to the method.
 
 class mekso::Grammar::Actions;
 
-sub instantiate_class($class_name) {
+sub instantiate_class($class_name, $node) {
     my $class := PAST::Var.new(:name($class_name), :scope('package'));
-    return PAST::Op.new(:pasttype('callmethod'), :name('new'), $class);
+    return PAST::Op.new(:pasttype('callmethod'), :name('new'), :node($node), $class);
 }
 
 method TOP($/) {
     my $past := PAST::Block.new( :blocktype('declaration'), :node( $/ ), :hll('mekso') );
-    for $<statement> {
+    for $<bridi> {
         $past.push( $_.ast );
     }
     make $past;
@@ -44,10 +44,10 @@ method mekso($/, $key) {
 }
 
 method bridi($/, $key) {
-    my $bridi := instantiate_class(~$<selbri>);
+    my $bridi := instantiate_class(~$<selbri>, $/);
 
     if ($key eq 'observative') {
-        $bridi.push(PAST::Val.new( :returns('Undef') ));
+        $bridi.push(PAST::Op.new( :name("zo'e"), :pasttype('call') ));
     }
 
     for $<sumti> {
@@ -58,7 +58,7 @@ method bridi($/, $key) {
 }
 
 method sumti($/, $key) {
-    my $sumti := instantiate_class('sumti');
+    my $sumti := instantiate_class('sumti', $/);
 
     $sumti.push($<namcu>);
 
