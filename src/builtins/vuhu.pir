@@ -18,7 +18,6 @@ vuhu.pir -- implementation of the VUhU selma'o
     $N0 = $N0 + $N1
     goto iter_loop
   iter_end:
-    say $N0
     .return ($N0)
 .end
 
@@ -33,7 +32,6 @@ vuhu.pir -- implementation of the VUhU selma'o
     $N0 = $N0 - $N1
     goto iter_loop
   iter_end:
-    say $N0
     .return ($N0)
 .end
 
@@ -48,7 +46,6 @@ vuhu.pir -- implementation of the VUhU selma'o
     $N0 = $N0 * $N1
     goto iter_loop
   iter_end:
-    say $N0
     .return ($N0)
 .end
 
@@ -63,7 +60,6 @@ vuhu.pir -- implementation of the VUhU selma'o
     $N0 = $N0 / $N1
     goto iter_loop
   iter_end:
-    say $N0
     .return ($N0)
 .end
 
@@ -78,7 +74,6 @@ vuhu.pir -- implementation of the VUhU selma'o
     .param num a
     .param num b
     $N0 = a ** b
-    say $N0
     .return ($N0)
 .end
 
@@ -88,7 +83,6 @@ vuhu.pir -- implementation of the VUhU selma'o
     .param num c
     $N0 = c ** a
     $N0 *= b
-    say $N0
     .return ($N0)
 .end
 

@@ -58,11 +58,7 @@ method bridi($/, $key) {
 }
 
 method sumti($/, $key) {
-    my $sumti := instantiate_class('sumti', $/);
-
-    $sumti.push($<namcu>.ast);
-
-    make $sumti;
+    make $<namcu>.ast;
 }
 
 ##  expression:

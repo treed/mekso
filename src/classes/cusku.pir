@@ -52,7 +52,7 @@ src/classes/cusku.pir - bridi class
 .end
 
 .sub 'go' :method
-    $P0 = self.'selsku'()
+    $P0 = self.'get_selsku'()
     say $P0
 .end
 

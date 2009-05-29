@@ -18,7 +18,7 @@ src/classes/bridi.pir - bridi class
     selbri = typeof self
     bridi = new selbri
     bridi.'set_selbri'(selbri)
-    $P0 = new 'Array'
+    $P0 = new 'ResizablePMCArray'
     bridi.'set_terbri'($P0)
     iter = new 'Iterator', args
   iter_loop:
@@ -61,7 +61,7 @@ src/classes/bridi.pir - bridi class
     setattribute self, 'terbri', arg
 .end
 
-.sub 'get_terbri' :method :multi(_,I)
+.sub 'get_terbri' :method :multi(_,'Integer')
     .param int arg
     $P0 = getattribute self, 'terbri'
     $P1 = $P0[arg]
@@ -71,20 +71,13 @@ src/classes/bridi.pir - bridi class
 .sub 'set_terbri' :method :multi(_,I,_)
     .param int key
     .param pmc arg
-    arg."set_selsu'i"(self)
-    $I0 = key + 1
-    arg."set_tersu'i"($I0)
     $P0 = getattribute self, 'terbri'
     $P0[key] = arg
 .end
 
 .sub 'add_terbri' :method
     .param pmc arg
-    arg."set_selsu'i"(self)
     $P0 = getattribute self, 'terbri'
-    $I0 = $P0.'getnumber'()
-    $I0 = $I0 + 1
-    arg."set_tersu'i"($I0)
     push $P0, arg
 .end
 
