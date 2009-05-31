@@ -20,8 +20,12 @@ token ws {
 }
 
 rule bridi {
-    | <sumti>+ <meiclause>? <selbri> <sumti>* {*}    #= non-observative
-    | <meiclause>? <selbri> <sumti>* {*}             #= observative
+    | <maiclause>? <sumti>+ <meiclause>? <selbri> <sumti>* {*}    #= non-observative
+    | <maiclause>? <meiclause>? <selbri> <sumti>* {*}             #= observative
+}
+
+token maiclause {
+	<nahusni>mai {*}
 }
 
 token meiclause {
@@ -35,6 +39,7 @@ token selbri {
 token brivla {
     | 'cusku'       #= cusku
 	| 'cipra'		#= cipra
+	| 'dunxu\'a'	#= dunxuha
 }
 
 rule sumti {

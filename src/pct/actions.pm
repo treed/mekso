@@ -58,7 +58,16 @@ method bridi($/, $key) {
         $bridi.push($<meiclause>[0].ast);
     }
 
+    if $<maiclause> {
+        $bridi.push($<maiclause>[0].ast);
+    }
+
     make $bridi;
+}
+
+method maiclause($/) {
+    $<nahusni>.ast.named('mai');
+    make $<nahusni>.ast;
 }
 
 method meiclause($/) {
