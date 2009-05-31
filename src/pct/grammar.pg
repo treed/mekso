@@ -9,7 +9,7 @@ This is the grammar for mekso written as a sequence of Perl 6 rules.
 grammar mekso::Grammar is PCT::Grammar;
 
 rule TOP {
-    <bridi>*
+	<bridi>+
     [ $ || <panic: 'Syntax error'> ]
     {*}
 }
@@ -20,8 +20,12 @@ token ws {
 }
 
 rule bridi {
-    | <sumti>+ <selbri> <sumti>* {*}    #= non-observative
-    | <selbri> <sumti>* {*}             #= observative
+    | <sumti>+ <meiclause>? <selbri> <sumti>* {*}    #= non-observative
+    | <meiclause>? <selbri> <sumti>* {*}             #= observative
+}
+
+token meiclause {
+	<nahusni>mei {*}
 }
 
 token selbri {
@@ -29,7 +33,8 @@ token selbri {
 }
 
 token brivla {
-    'cusku'         #= cusku
+    | 'cusku'       #= cusku
+	| 'cipra'		#= cipra
 }
 
 rule sumti {

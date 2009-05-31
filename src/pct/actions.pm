@@ -54,7 +54,16 @@ method bridi($/, $key) {
         $bridi.push($_.ast);
     }
     
+    if $<meiclause> {
+        $bridi.push($<meiclause>[0].ast);
+    }
+
     make $bridi;
+}
+
+method meiclause($/) {
+    $<nahusni>.ast.named('mei');
+    make $<nahusni>.ast;
 }
 
 method sumti($/, $key) {

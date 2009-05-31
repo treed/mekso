@@ -42,7 +42,7 @@ BUILTINS_PIR = \
   src/builtins/zohe.pir \
   src/classes/bridi.pir \
   src/classes/cusku.pir \
-  src/classes/sumti.pir
+  src/classes/cipra.pir
 
 # PMCS        = mekso
 # PMC_SOURCES = $(PMC_DIR)/mekso.pmc

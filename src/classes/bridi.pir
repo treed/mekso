@@ -8,11 +8,13 @@ src/classes/bridi.pir - bridi class
 .sub 'onload' :anon :init :load
     .local pmc p6meta, bridi
     p6meta = get_hll_global['dacti'], '$!P6META'
-    bridi = p6meta.'new_class'('bridi', 'parent'=>'dacti', 'attr'=>'bridi selbri terbri')
+    bridi = p6meta.'new_class'('bridi', 'parent'=>'dacti', 'attr'=>'bridi selbri terbri mei')
 .end
 
 .sub 'new' :method
     .param pmc args :slurpy
+    .param int mei :named('mei') :optional
+    .param int mei_flag :opt_flag
     .local pmc iter, bridi
     .local string selbri
     selbri = typeof self
@@ -27,6 +29,14 @@ src/classes/bridi.pir - bridi class
     bridi.'add_terbri'($P1)
     goto iter_loop
   iter_end:
+    $P2 = new 'BigNum'
+    if mei_flag goto mei_set
+    $P2 = 0
+    goto done
+  mei_set:
+    $P2 = mei
+  done:
+    setattribute bridi, 'mei', $P2
     bridi.'go'()
     .return (bridi)
 .end
