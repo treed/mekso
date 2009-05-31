@@ -9,7 +9,7 @@ This is the grammar for mekso written as a sequence of Perl 6 rules.
 grammar mekso::Grammar is PCT::Grammar;
 
 rule TOP {
-	<bridi>+
+	<bridi> ['.i' <bridi>]*
     [ $ || <panic: 'Syntax error'> ]
     {*}
 }
