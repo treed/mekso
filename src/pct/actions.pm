@@ -125,26 +125,36 @@ method namcu($/,$key) {
 } 
 
 method nahusni($/) {
-    my %PA;
-    %PA<no> := 0;
-    %PA<pa> := 1;
-    %PA<re> := 2;
-    %PA<ci> := 3;
-    %PA<vo> := 4;
-    %PA<mu> := 5;
-    %PA<xa> := 6;
-    %PA<ze> := 7;
-    %PA<bi> := 8;
-    %PA<so> := 9;
+    my %nahuvla;
+    %nahuvla<no> := 0;
+    %nahuvla<pa> := 1;
+    %nahuvla<re> := 2;
+    %nahuvla<ci> := 3;
+    %nahuvla<vo> := 4;
+    %nahuvla<mu> := 5;
+    %nahuvla<xa> := 6;
+    %nahuvla<ze> := 7;
+    %nahuvla<bi> := 8;
+    %nahuvla<so> := 9;
+    %nahuvla<dau> := 10;
+    %nahuvla<fei> := 11;
+    %nahuvla<gai> := 12;
+    %nahuvla<jau> := 13;
+    %nahuvla<rei> := 14;
+    %nahuvla<vai> := 15;
     my $num := 0;
-    for $<predigits> {
-        $num := $num * 10;
-        $num := $num + %PA{~$_};
+    my $base := 10;
+    if $<base> {
+        $base := $<base>[0].ast.value();
     }
-    my $place := 10;
+    for $<predigits> {
+        $num := $num * $base;
+        $num := $num + %nahuvla{~$_};
+    }
+    my $place := $base;
     for $<postdigits> {
-        $num := $num + (%PA{~$_} / $place);
-        $place := $place * 10;
+        $num := $num + (%nahuvla{~$_} / $place);
+        $place := $place * $base;
     }
     if ~$<prefixsign>[0] eq "ni'u" {
         $num := -$num;

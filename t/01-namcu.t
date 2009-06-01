@@ -1,4 +1,4 @@
-pasomei cipra
+recimei cipra
 .i pamai dunxu'a li pa li pa
 .i remai dunxu'a li re li re
 .i cimai dunxu'a li ci li ci
@@ -18,3 +18,7 @@ pasomei cipra
 .i pazemai dunxu'a li nopipa li no pi pa
 .i pabimai dunxu'a li paboi li pa
 .i pasomai dunxu'a li parecipipaboi li pare cipi pa boi
+.i renomai dunxu'a li panopano ju'u re li pano
+.i repamai dunxu'a li papapapa ju'u re li pamu
+.i reremai dunxu'a li papapapa ju'u re li vai ju'u paxa
+.i recimai dunxu'a li papanopapipanopa ju'ure li pacipixaremu

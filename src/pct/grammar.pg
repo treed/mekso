@@ -51,9 +51,9 @@ rule namcu {
     | <nahusni>      {*} #= nahusni
 }
 
-token "nahusni" { <prefixsign>? \s* [<predigits=PA1> \s*]+ ['pi' \s* [<postdigits=PA1> \s*]+]? 'boi'? {*} }
+token nahusni { <prefixsign>? \s* [<predigits=nahuvla> \s*]+ ['pi' \s* [<postdigits=nahuvla> \s*]+]? 'boi'? ['ju\'u' <base=nahusni>]? {*} }
 
-token PA1 { no | pa | re | ci | vo | mu | xa | ze | bi | so }
+token nahuvla { no | pa | re | ci | vo | mu | xa | ze | bi | so | dau | fei | gai | jau | rei | vai }
 
 token prefixsign { 'ma\'u' | 'ni\'u' }
 
