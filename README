@@ -1,2 +1,42 @@
 Language 'mekso' was created with parrot/tools/dev/create_language.pl, r38376.
 
+mekso is an experimental language based on Lojban, the Logical Language.
+(See http://www.lojban.org/ for more information about the language.)
+
+    It is not intended to be able to parse or interpret every possible Lojban
+utterance. Indeed, its grammar is necessarily more restrictive than the
+official grammar of Lojban. It's targetted at supporting most of the mekso
+subgrammar, as well as some non-mekso features that are intended to assist in
+the use of the language.
+
+Here is a list of what's supported right now:
+
+Numbers in Base-10, including decimals. This amounts to PA1, plus "pi", "ma'u"
+and "ni'u". Anything else from PA is not supported.
+
+Operators, either in infix or Polish Notation. RPN isn't supported yet.
+
+* VUhU1 is supported (su'i, vu'u, pi'i, fe'i)
+* Parts of VUhU2 are supported (fa'i, gei, te'a)
+* VUhU3 is supported (cu'a, de'o, fe'a, ne'o, va'a)
+* VUhU4 is not supported at all (And probably won't be for some time.)
+
+mekso does not yet understand multiple operator strings (e.g. "pa su'i re pi'i
+ci") unless you use explicit parens ("vei ... ve'o").
+
+One selbri for general use:
+
+cusku, which prints the se cusku to stdout. Any other specified places are ignored for now.
+
+Two selbri for use with Test Anything Protocol:
+
+cipra, accompanied by a mei, is used at the start of a test script to specify 
+how many tests are coming.
+
+dunxu'a, accompanied by a mai indicating which test is being performed. dunxu'a
+compares the se dunxu'a and the te dunxu'a and prints "ok" if they are equal or
+"not ok" if they are not.
+
+It is possible to include a mei or mai for any bridi, but unless mentioned above, they'll be ignored.
+
+la bancus ciska de'i li reki'oso pi'e xa pi'e pa
