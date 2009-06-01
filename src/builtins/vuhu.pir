@@ -12,6 +12,7 @@ vuhu.pir -- implementation of the VUhU selma'o
     .param pmc args            :slurpy
     .local pmc iter
     iter = new 'Iterator', args
+    $N0 = shift iter
   iter_loop:
     unless iter goto iter_end
     $N1 = shift iter

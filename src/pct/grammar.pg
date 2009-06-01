@@ -76,6 +76,7 @@ token naryoperator { 'su\'i' | 'vu\'u' | 'fe\'i' | 'pi\'i' }
 
 rule value {
     | <nahusni> {*}                              #= nahusni
+	| 'vei' <mekso> 've\'o' {*} #= mekso
 }
 
 ##  terms
