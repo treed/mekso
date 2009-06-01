@@ -68,7 +68,7 @@ rule mekso {
 
 token unaryoperator { 'fa\'i' | 'cu\'a' | 'ne\'o' }
 
-token binaryoperator { 'te\'a' | 'de\'o' }
+token binaryoperator { 'te\'a' | 'de\'o' | 'fe\'a' }
 
 token trinaryoperator { 'gei' }
 
