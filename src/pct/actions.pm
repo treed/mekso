@@ -137,9 +137,14 @@ method nahusni($/) {
     %PA<bi> := 8;
     %PA<so> := 9;
     my $num := 0;
-    for $<PA1> {
+    for $<predigits> {
         $num := $num * 10;
         $num := $num + %PA{~$_};
+    }
+    my $place := 10;
+    for $<postdigits> {
+        $num := $num + (%PA{~$_} / $place);
+        $place := $place * 10;
     }
     if ~$<prefixsign>[0] eq "ni'u" {
         $num := -$num;

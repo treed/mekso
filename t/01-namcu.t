@@ -1,4 +1,4 @@
-pacimei cipra
+pasomei cipra
 .i pamai dunxu'a li pa li pa
 .i remai dunxu'a li re li re
 .i cimai dunxu'a li ci li ci
@@ -12,3 +12,9 @@ pacimei cipra
 .i papamai dunxu'a li pareci li pareci
 .i paremai dunxu'a li ma'upa li pa
 .i pacimai dunxu'a li ni'upa li ni'upa
+.i pavomai dunxu'a li pa re ci li pareci
+.i pamumai dunxu'a li pare ci li pa reci
+.i paxamai dunxu'a li pareci pi vomuxa li parecipivomuxa
+.i pazemai dunxu'a li nopipa li no pi pa
+.i pabimai dunxu'a li paboi li pa
+.i pasomai dunxu'a li parecipipaboi li pare cipi pa boi
