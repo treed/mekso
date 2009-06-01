@@ -93,6 +93,12 @@ vuhu.pir -- implementation of the VUhU selma'o
     .return ($N0)
 .end
 
+.sub "ne'o"
+    .param int a
+    $N0 = fact a
+    .return ($N0)
+.end
+
 # Local Variables:
 #   mode: pir
 #   fill-column: 100
