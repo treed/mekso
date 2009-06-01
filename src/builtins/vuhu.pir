@@ -99,6 +99,15 @@ vuhu.pir -- implementation of the VUhU selma'o
     .return ($N0)
 .end
 
+.sub "de'o"
+    .param num a
+    .param num b
+    $N0 = ln a
+    $N1 = ln b
+    $N2 = $N0 / $N1
+    .return ($N2)
+.end
+
 # Local Variables:
 #   mode: pir
 #   fill-column: 100
