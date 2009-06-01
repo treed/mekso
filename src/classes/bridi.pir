@@ -31,14 +31,14 @@ src/classes/bridi.pir - bridi class
     bridi.'add_terbri'($P1)
     goto iter_loop
   iter_end:
-    $P2 = new 'BigNum'
+    $P2 = new 'Float'
     if mei_flag goto mei_set
     $P2 = 0
     goto mei_done
   mei_set:
     $P2 = mei
   mei_done:
-    $P3 = new 'BigNum'
+    $P3 = new 'Float'
     if mai_flag goto mai_set
     $P3 = 0
     goto mai_done

@@ -144,7 +144,7 @@ method nahusni($/) {
     if ~$<prefixsign>[0] eq "ni'u" {
         $num := -$num;
     }
-    make PAST::Val.new( :value( $num ), :returns('BigNum'), :node($/) );
+    make PAST::Val.new( :value( $num ), :returns('Float'), :node($/) );
 }
 
 
