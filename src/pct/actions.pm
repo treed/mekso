@@ -31,11 +31,11 @@ method TOP($/) {
 
 
 method mekso($/, $key) {
-    my $past := PAST::Op.new( :name(~$<operator>), :pasttype('call'), :node( $/ ) );
+    my $past := PAST::Op.new( :name(~$<oper>), :pasttype('call'), :node( $/ ) );
     if ($key eq "unary") { 
-        $past.push( $<term>.ast );
+        $past.push( $<namcu>.ast );
     } else {
-        for $<term> {
+        for $<namcu> {
             $past.push( $_.ast );
         }
     }
@@ -76,47 +76,6 @@ method meiclause($/) {
 }
 
 method sumti($/, $key) {
-    make $<namcu>.ast;
-}
-
-##  expression:
-##    This is one of the more complex transformations, because
-##    our grammar is using the operator precedence parser here.
-##    As each node in the expression tree is reduced by the
-##    parser, it invokes this method with the operator node as
-##    the match object and a $key of 'reduce'.  We then build
-##    a PAST::Op node using the information provided by the
-##    operator node.  (Any traits for the node are held in $<top>.)
-##    Finally, when the entire expression is parsed, this method
-##    is invoked with the expression in $<expr> and a $key of 'end'.
-method expression($/, $key) {
-    if ($key eq 'end') {
-        make $<expr>.ast;
-    }
-    else {
-        my $past := PAST::Op.new( :name($<type>),
-                                  :pasttype($<top><pasttype>),
-                                  :pirop($<top><pirop>),
-                                  :lvalue($<top><lvalue>),
-                                  :node($/)
-                                );
-        for @($/) {
-            $past.push( $_.ast );
-        }
-        make $past;
-    }
-}
-
-
-##  term:
-##    Like 'statement' above, the $key has been set to let us know
-##    which term subrule was matched.
-method term($/, $key) {
-    make $/{$key}.ast;
-}
-
-
-method value($/, $key) {
     make $/{$key}.ast;
 }
 
@@ -161,12 +120,6 @@ method nahusni($/) {
     }
     make PAST::Val.new( :value( $num ), :returns('Float'), :node($/) );
 }
-
-
-method quote($/) {
-    make PAST::Val.new( :value( $<string_literal>.ast ), :node($/) );
-}
-
 
 # Local Variables:
 #   mode: perl6

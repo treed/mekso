@@ -37,18 +37,19 @@ token selbri {
 }
 
 token brivla {
-    | 'cusku'       #= cusku
-	| 'cipra'		#= cipra
-	| 'dunxu\'a'	#= dunxuha
+    | 'cusku'      
+	| 'cipra'	
+	| 'dunxu\'a'
 }
 
-rule sumti {
-    'li' <namcu> {*}    #= li
+token sumti {
+    | 'li' <nahusni> <!before <operator>> {*} #= nahusni
+    | 'li' <mekso> {*} #= mekso
 }
 
 rule namcu {
-    | <mekso>        {*} #= mekso
     | <nahusni>      {*} #= nahusni
+    | <mekso>        {*} #= mekso
 }
 
 token nahusni { <prefixsign>? \s* [<predigits=nahuvla> \s*]+ ['pi' \s* [<postdigits=nahuvla> \s*]+]? 'boi'? ['ju\'u' <base=nahusni>]? {*} }
@@ -58,12 +59,19 @@ token nahuvla { no | pa | re | ci | vo | mu | xa | ze | bi | so | dau | fei | ga
 token prefixsign { 'ma\'u' | 'ni\'u' }
 
 rule mekso {
-    | <operator=unaryoperator> <term> 'ku\'e'? {*}           #= unary
-    | <term> <operator=binaryoperator> <term> {*}   #= binary
-    | <term> <operator=naryoperator> <term> {*}     #= nary
-    | <operator=binaryoperator> <term> <term> 'ku\'e'? {*}   #= binary
-    | <operator=trinaryoperator> <term> ** 3 'ku\'e'? {*}    #= trinary
-    | <operator=naryoperator> <term> <term>+ 'ku\'e'? {*}    #= nary
+    | <oper=unaryoperator> <namcu> 'ku\'e'? {*}           #= unary
+    | <namcu> <oper=binaryoperator> <namcu> {*}   #= binary
+    | <namcu> <oper=naryoperator> <namcu> {*}     #= nary
+    | <oper=binaryoperator> <namcu> <namcu> 'ku\'e'? {*}   #= binary
+    | <oper=trinaryoperator> <namcu> ** 3 'ku\'e'? {*}    #= trinary
+    | <oper=naryoperator> <namcu> <namcu>+ 'ku\'e'? {*}    #= nary
+}
+
+token operator {
+    | unaryoperator
+    | binaryoperator
+    | trinaryoperator
+    | naryoperator
 }
 
 token unaryoperator { 'fa\'i' | 'cu\'a' | 'ne\'o' | 'va\'a' }
@@ -73,16 +81,3 @@ token binaryoperator { 'te\'a' | 'de\'o' | 'fe\'a' }
 token trinaryoperator { 'gei' }
 
 token naryoperator { 'su\'i' | 'vu\'u' | 'fe\'i' | 'pi\'i' }
-
-rule value {
-    | <nahusni> {*}                              #= nahusni
-	| 'vei' <mekso> 've\'o' {*} #= mekso
-}
-
-##  terms
-token term {
-    | <value> {*}                                #= value
-}
-
-rule expression is optable { ... }
-
