@@ -58,12 +58,12 @@ token nahuvla { no | pa | re | ci | vo | mu | xa | ze | bi | so | dau | fei | ga
 token prefixsign { 'ma\'u' | 'ni\'u' }
 
 rule mekso {
-    | <operator=unaryoperator> <term> {*}           #= unary
+    | <operator=unaryoperator> <term> 'ku\'e'? {*}           #= unary
     | <term> <operator=binaryoperator> <term> {*}   #= binary
     | <term> <operator=naryoperator> <term> {*}     #= nary
-    | <operator=binaryoperator> <term> <term> {*}   #= binary
-    | <operator=trinaryoperator> <term> ** 3 {*}    #= trinary
-    | <operator=naryoperator> <term> <term>+ {*}    #= nary
+    | <operator=binaryoperator> <term> <term> 'ku\'e'? {*}   #= binary
+    | <operator=trinaryoperator> <term> ** 3 'ku\'e'? {*}    #= trinary
+    | <operator=naryoperator> <term> <term>+ 'ku\'e'? {*}    #= nary
 }
 
 token unaryoperator { 'fa\'i' | 'cu\'a' | 'ne\'o' | 'va\'a' }

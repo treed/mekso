@@ -11,7 +11,8 @@ the use of the language.
 
     Here is a list of what's supported right now:
 
-    Numbers in any base up to 16, including floating point. This amounts to PA1 and PA2 plus "pi", "ma'u" and "ni'u". Anything else from PA is not supported.
+    Numbers in any base up to 16, including floating point. This amounts to PA1 and PA2 plus "pi", "ma'u", "ni'u", and "ku'e". Anything else from PA is not 
+supported.
 
     Operators, either in infix or Polish Notation. RPN isn't supported yet.
 
