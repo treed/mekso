@@ -1,4 +1,4 @@
-pasomei cipra
+renomei cipra
 .i pamai dunxu'a li pa su'i pa li re
 .i remai dunxu'a li re vu'u pa li pa
 .i cimai dunxu'a li re pi'i ci li xa
@@ -18,3 +18,4 @@ pasomei cipra
 .i pazemai dunxu'a li va'a vore li ni'uvore
 .i pabimai dunxu'a li xa fe'i vo li papimu
 .i pasomai dunxu'a li su'i paboi paboi pa ku'e li ci
+.i renomai dunxu'a li vei fa'i vo ve'o pi'i vo li pa
