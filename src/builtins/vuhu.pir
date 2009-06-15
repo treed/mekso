@@ -67,7 +67,6 @@ vuhu.pir -- implementation of the VUhU selma'o
 .sub "fa'i"
     .param num a
     $N0 = 1 / a
-    say $N0
     .return ($N0)
 .end
 
