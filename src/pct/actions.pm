@@ -148,6 +148,9 @@ method nahusni($/) {
         $base := $<base>[0].ast.value();
     }
     for $<predigits> {
+        if (%nahuvla{~$_} > ($base - 1)) {
+            $/.panic("lo na'usni noi mleca li " ~ $base ~ " ku'o po'o ka'e se pilno");
+        }
         $num := $num * $base;
         $num := $num + %nahuvla{~$_};
     }
